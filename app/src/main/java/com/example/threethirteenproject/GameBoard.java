@@ -25,11 +25,11 @@ public class GameBoard extends SurfaceView {
     }
 
     @Override
-    public void onDraw(Canvas c){
-        Canvas canvas = c;
-        Bitmap myImageBMP = BitmapFactory.decodeResource(getResources(), R.drawable.ten_of_clubs);
-        canvas.drawColor(Color.BLUE);
-        canvas.drawBitmap(myImageBMP, 100, 100, null);
+    public void onDraw(Canvas canvas){
+        Bitmap tenOfClubs = BitmapFactory.decodeResource(getResources(), R.drawable.ten_of_clubs);
+        Bitmap scaledTenOfClubs = Bitmap.createScaledBitmap(tenOfClubs,148, 215,true);
+        canvas.drawColor(Color.GREEN);
+        canvas.drawBitmap(scaledTenOfClubs, 100, 100, null);
     }
 
 
