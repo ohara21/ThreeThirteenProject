@@ -24,7 +24,10 @@ public class GameBoard extends SurfaceView {
 
     //Matrix rotate = new Matrix();
 
-    Card tenClubsCard = new Card(1);
+    Card tenClubsCard = new Card(1,'s',10);
+    Card tenHeartsCard = new Card(1,'h',10);
+    Card tenSpadesCard = new Card(1,'s',10);
+    Card tenDiamondsCard = new Card(1,'d',10);
     Card backCard = new Card(2);
 
     public GameBoard(Context context) {
@@ -38,6 +41,26 @@ public class GameBoard extends SurfaceView {
     public GameBoard(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
+    /**
+     * This function draws the specified card object to a given x and y on a given canvas
+     * Works for both front and back showing cards
+     */
+    /** External Citation:
+     * Date: 9/18/20
+     * Problem: Didn't know how to create Bitmap image
+     * Resource: Professor Nuxoll
+     * Solution: used his code
+     */
+    public void drawCard(Canvas canvas, float x, float y, Card card){
+
+
+        Bitmap tempObj = BitmapFactory.decodeResource(getResources(), card.cardId);
+        Bitmap cardObj = Bitmap.createScaledBitmap(tempObj,card.getWidth(),card.getHeight(),true);
+
+        canvas.drawBitmap(cardObj, x, y, null);
+    }
+
 
     @Override
     public void onDraw(Canvas canvas){
@@ -58,26 +81,22 @@ public class GameBoard extends SurfaceView {
          * Problem: Didn't know how to rotate Bitmap image
          * Resource: https://stackoverflow.com/questions/9015372/how-to-rotate-a-bitmap-90-degrees
          * Solution: used the method suggested
-         *
-         * External Citation:
-         * Date: 9/18/20
-         * Problem: Didn't know how to create Bitmap image
-         * Resource: Professor Nuxoll
-         * Solution: used his code
          */
         //rotate.postRotate(90);
-        Bitmap tenClubs = BitmapFactory.decodeResource(getResources(), R.drawable.ten_of_clubs);
-        Bitmap tenOfClubs = Bitmap.createScaledBitmap(tenClubs,tenClubsCard.getWidth(), tenClubsCard.getHeight(),true);
-        //Bitmap tenOfClubsHor = Bitmap.createBitmap(tenOfClubs, 0, 0, tenClubsCard.getWidth(), tenClubsCard.getHeight(), rotate, true);
-        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.back_vert);
-        Bitmap back = Bitmap.createScaledBitmap(b,backCard.getWidth(), backCard.getHeight(),true);
-        //Bitmap backHor = Bitmap.createBitmap(back, 0, 0, backCard.getWidth(), backCard.getHeight(), rotate, true);
 
-        canvas.drawBitmap(tenOfClubs, discardWidth, midHeight, null);
-        canvas.drawBitmap(back, stockWidth, midHeight, null);
-        canvas.drawBitmap(back, 100, topY, null);
-        canvas.drawBitmap(tenOfClubs, 100, botY, null);
+
+        drawCard(canvas, 100, 100, tenClubsCard);
+        drawCard(canvas, 200, 100, backCard);
+        drawCard(canvas, 300, 100, tenSpadesCard);
+        drawCard(canvas,400,100,tenHeartsCard);
+        drawCard(canvas,500,100,tenDiamondsCard);
+
     }
+
+
+
+
+
 
 
 }

@@ -16,7 +16,17 @@ public class Card {
     private int finalBackWidth;
     private int finalBackHeight;
 
+    public int cardId = R.drawable.back_vert;
+
     // constructor sets the type of card and scales the card
+    public Card(int cType, char suit, int value){
+        this.cardType = cType;
+        scaleCard(this.cardType);
+        if(cType == 1) {
+            cardId = getId(suit, value);
+        }
+    }
+
     public Card(int cType){
         this.cardType = cType;
         scaleCard(this.cardType);
@@ -28,12 +38,10 @@ public class Card {
         if(cType == 1){
             finalCardWidth = (int) (CARDWIDTH * scale);
             finalCardHeight = (int) (CARDHEIGHT * scale);
-            return;
         }
         else{
             finalBackWidth = (int) (BACKWIDTH * backScale);
             finalBackHeight = (int) (BACKHEIGHT * backScale);
-            return;
         }
     }
 
@@ -58,4 +66,190 @@ public class Card {
         }
 
     }
+
+    private int getId(char suit, int value){
+        int cardId = 3;
+
+        switch(suit){
+            case 's':
+                switch(value){
+                    case 1:
+                        cardId = R.drawable.ace_of_spades;
+                        break;
+                    case 2:
+                        cardId = R.drawable.two_of_spades;
+                        break;
+                    case 3:
+                        cardId = R.drawable.three_of_spades;
+                        break;
+                    case 4:
+                        cardId = R.drawable.four_of_spades;
+                        break;
+                    case 5:
+                        cardId = R.drawable.five_of_spades;
+                        break;
+                    case 6:
+                        cardId = R.drawable.six_of_spades;
+                        break;
+                    case 7:
+                        cardId = R.drawable.seven_of_spades;
+                        break;
+                    case 8:
+                        cardId = R.drawable.eight_of_spades;
+                        break;
+                    case 9:
+                        cardId = R.drawable.nine_of_spades;
+                        break;
+                    case 10:
+                        cardId = R.drawable.ten_of_spades;
+                        break;
+                    case 11:
+                        cardId = R.drawable.jack_of_spades;
+                        break;
+                    case 12:
+                        cardId = R.drawable.queen_of_spades;
+                        break;
+                    case 13:
+                        cardId = R.drawable.king_of_spades;
+                        break;
+                }
+                break;
+            case 'h':
+                switch(value){
+                    case 1:
+                        cardId = R.drawable.ace_of_hearts;
+                        break;
+                    case 2:
+                        cardId = R.drawable.two_of_hearts;
+                        break;
+                    case 3:
+                        cardId = R.drawable.three_of_hearts;
+                        break;
+                    case 4:
+                        cardId = R.drawable.four_of_hearts;
+                        break;
+                    case 5:
+                        cardId = R.drawable.five_of_hearts;
+                        break;
+                    case 6:
+                        cardId = R.drawable.six_of_hearts;
+                        break;
+                    case 7:
+                        cardId = R.drawable.seven_of_hearts;
+                        break;
+                    case 8:
+                        cardId = R.drawable.eight_of_hearts;
+                        break;
+                    case 9:
+                        cardId = R.drawable.nine_of_hearts;
+                        break;
+                    case 10:
+                        cardId = R.drawable.ten_of_hearts;
+                        break;
+                    case 11:
+                        cardId = R.drawable.jack_of_hearts;
+                        break;
+                    case 12:
+                        cardId = R.drawable.queen_of_hearts;
+                        break;
+                    case 13:
+                        cardId = R.drawable.king_of_hearts;
+                        break;
+
+            }
+                break;
+            case 'c':
+                switch(value){
+                    case 1:
+                        cardId = R.drawable.ace_of_clubs;
+                        break;
+                    case 2:
+                        cardId = R.drawable.two_of_clubs;
+                        break;
+                    case 3:
+                        cardId = R.drawable.three_of_clubs;
+                        break;
+                    case 4:
+                        cardId = R.drawable.four_of_clubs;
+                        break;
+                    case 5:
+                        cardId = R.drawable.five_of_clubs;
+                        break;
+                    case 6:
+                        cardId = R.drawable.six_of_clubs;
+                        break;
+                    case 7:
+                        cardId = R.drawable.seven_of_clubs;
+                        break;
+                    case 8:
+                        cardId = R.drawable.eight_of_clubs;
+                        break;
+                    case 9:
+                        cardId = R.drawable.nine_of_clubs;
+                        break;
+                    case 10:
+                        cardId = R.drawable.ten_of_clubs;
+                        break;
+                    case 11:
+                        cardId = R.drawable.jack_of_clubs;
+                        break;
+                    case 12:
+                        cardId = R.drawable.queen_of_clubs;
+                        break;
+                    case 13:
+                        cardId = R.drawable.king_of_clubs;
+                        break;
+                }
+                break;
+            case 'd':
+                switch(value){
+                    case 1:
+                        cardId = R.drawable.ace_of_diamonds;
+                        break;
+                    case 2:
+                        cardId = R.drawable.two_of_diamonds;
+                        break;
+                    case 3:
+                        cardId = R.drawable.three_of_diamonds;
+                        break;
+                    case 4:
+                        cardId = R.drawable.four_of_diamonds;
+                        break;
+                    case 5:
+                        cardId = R.drawable.five_of_diamonds;
+                        break;
+                    case 6:
+                        cardId = R.drawable.six_of_diamonds;
+                        break;
+                    case 7:
+                        cardId = R.drawable.seven_of_diamonds;
+                        break;
+                    case 8:
+                        cardId = R.drawable.eight_of_diamonds;
+                        break;
+                    case 9:
+                        cardId = R.drawable.nine_of_diamonds;
+                        break;
+                    case 10:
+                        cardId = R.drawable.ten_of_diamonds;
+                        break;
+                    case 11:
+                        cardId = R.drawable.jack_of_diamonds;
+                        break;
+                    case 12:
+                        cardId = R.drawable.queen_of_diamonds;
+                        break;
+                    case 13:
+                        cardId = R.drawable.king_of_diamonds;
+                        break;
+                }
+                break;
+
+        }
+
+
+        return cardId;
+    }
+
+
 }
