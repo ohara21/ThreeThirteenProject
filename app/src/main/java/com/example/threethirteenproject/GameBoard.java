@@ -24,6 +24,10 @@ public class GameBoard extends SurfaceView {
 
     //Matrix rotate = new Matrix();
 
+    /*
+    We should create an object array for the deck and another object array to hold all the used cards/ discard
+    cards in the game since we can't have two of the same card if we are only using one deck
+     */
     Card tenClubsCard = new Card(1,'s',10);
     Card tenHeartsCard = new Card(1,'h',10);
     Card tenSpadesCard = new Card(1,'s',10);

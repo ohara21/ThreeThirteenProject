@@ -27,6 +27,7 @@ public class Card {
         }
     }
 
+    //base constructor for the card object
     public Card(int cType){
         this.cardType = cType;
         scaleCard(this.cardType);
@@ -67,6 +68,7 @@ public class Card {
 
     }
 
+    //returns the picture id based on the suit and value of the card
     private int getId(char suit, int value){
         int cardId = 3;
 
