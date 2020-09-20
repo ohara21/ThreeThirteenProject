@@ -85,11 +85,14 @@ public class GameBoard extends SurfaceView {
         //rotate.postRotate(90);
 
 
-        drawCard(canvas, 100, 100, tenClubsCard);
-        drawCard(canvas, 200, 100, backCard);
-        drawCard(canvas, 300, 100, tenSpadesCard);
-        drawCard(canvas,400,100,tenHeartsCard);
-        drawCard(canvas,500,100,tenDiamondsCard);
+        drawCard(canvas, discardWidth, midHeight, tenClubsCard);
+        drawCard(canvas, stockWidth, midHeight, backCard);
+        drawCard(canvas, 300, topY, backCard);
+        drawCard(canvas,400,topY,backCard);
+        drawCard(canvas,500,topY,backCard);
+        drawCard(canvas, 300, botY, tenSpadesCard);
+        drawCard(canvas,400,botY,tenHeartsCard);
+        drawCard(canvas,500,botY,tenDiamondsCard);
 
     }
 
