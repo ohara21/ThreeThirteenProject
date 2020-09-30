@@ -108,8 +108,10 @@ public class GameBoard extends SurfaceView {
      */
     public void drawCard(Canvas canvas, float x, float y, Card card){
 
+
         Bitmap tempObj = BitmapFactory.decodeResource(getResources(), card.cardId);
         Bitmap cardObj = Bitmap.createScaledBitmap(tempObj,card.getWidth(),card.getHeight(),true);
+
         canvas.drawBitmap(cardObj, x, y, null);
 
     }

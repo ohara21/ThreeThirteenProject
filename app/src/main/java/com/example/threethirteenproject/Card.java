@@ -32,6 +32,7 @@ public class Card {
         }
     }
 
+    //base constructor for the card object
     public Card(int cType){
         this.cardType = cType;
         scaleCard(this.cardType);
@@ -267,6 +268,7 @@ public class Card {
                 break;
 
         }
+
 
         return cardId;
     }
