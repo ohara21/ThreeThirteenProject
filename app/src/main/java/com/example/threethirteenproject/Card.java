@@ -10,7 +10,7 @@ public class Card {
     private final int CARDHEIGHT = 323;
     private int finalCardWidth;
     private int finalCardHeight;
-    private double backScale = 1.32;
+    private double backScale = 1.25;
     private final int BACKWIDTH = 223;
     private final int BACKHEIGHT = 307;
     private int finalBackWidth;
@@ -18,7 +18,12 @@ public class Card {
 
     public int cardId = R.drawable.back_vert;
 
-    // constructor sets the type of card and scales the card
+    /**
+     * constructor sets the types of card and scales the card
+     * @param cType
+     * @param suit
+     * @param value
+     */
     public Card(int cType, char suit, int value){
         this.cardType = cType;
         scaleCard(this.cardType);
@@ -32,8 +37,11 @@ public class Card {
         scaleCard(this.cardType);
     }
 
-    //scales the card and accounts for the different orientations of each card
-    //sets the height and width with respect to its orientation in the screen
+    /**
+     * scales the card and accounts for the different orientations of each cars
+     * sets the height and width with respect to its orientation in the screen
+     * @param cType
+     */
     public void scaleCard(int cType){
         if(cType == 1){
             finalCardWidth = (int) (CARDWIDTH * scale);
@@ -45,7 +53,10 @@ public class Card {
         }
     }
 
-    //returns the vertical height of the card depending on its type
+    /**
+     * returns the vertical height of the card depending on its type
+     * @return
+     */
     public int getHeight(){
         if(cardType == 1) {
             return this.finalCardHeight;
@@ -56,7 +67,10 @@ public class Card {
 
     }
 
-    //returns the horizontal width of the card depending on its type
+    /**
+     * returns the horizontal width of the card depending on its type
+     * @return
+     */
     public int getWidth(){
         if(cardType == 1) {
             return this.finalCardWidth;
@@ -67,6 +81,13 @@ public class Card {
 
     }
 
+    /**
+     * returns the card's ID depending on the suit and value
+     * used for drawing the Bitmaps of the cards
+     * @param suit
+     * @param value
+     * @return
+     */
     private int getId(char suit, int value){
         int cardId = 3;
 
@@ -246,7 +267,6 @@ public class Card {
                 break;
 
         }
-
 
         return cardId;
     }
