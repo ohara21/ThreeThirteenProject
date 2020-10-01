@@ -11,6 +11,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceView;
 
+import java.util.ArrayList;
+
 public class GameBoard extends SurfaceView {
 
     //instance variables that will define locations on the GameBoard
@@ -25,6 +27,10 @@ public class GameBoard extends SurfaceView {
 
     //used to rotate the card images
     Matrix rotate = new Matrix();
+
+    //creating a deck of 52 cards
+    char suite[] = new char[] {'c','s','h','d'};
+    ArrayList<Card> deck = new ArrayList<Card>();
 
     //create all 53 card objects
     Card backCard = new Card(2);
@@ -141,6 +147,12 @@ public class GameBoard extends SurfaceView {
 
     @Override
     public void onDraw(Canvas canvas){
+        //creates all 52 cards and places them into an array list called deck
+        for(int s = 0; s < 4; s++){
+            for(int v = 1; v <= 13; v++){
+                deck.add(new Card(1,suite[s],v));
+            }
+        }
 
         //initialize coordinates based on the GameBoard's dimensions
         viewWidth = this.getWidth();
